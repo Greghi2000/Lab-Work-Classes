@@ -2,14 +2,15 @@ import unittest
 from src.pub import Pub
 from src.drink import Drink
 from src.customer import Customer
+from src.food import Food
 
 class TestPub(unittest.TestCase):
     def setUp(self):
-        self.drink_1 = Drink("cider", 3.50)
-        self.drink_2 = Drink("wine", 7.00)
-        self.drink_3 = Drink("cocktail", 15.00)
+        self.drink_1 = Drink("cider", 3.50, 2)
+        self.drink_2 = Drink("wine", 7.00, 3)
+        self.drink_3 = Drink("cocktail", 15.00, 6)
         self.pub = Pub("Edinburgh Arms", 100, [self.drink_1, self.drink_2, self.drink_3])
-        self.customer = Customer("David", 70)
+        self.customer = Customer("David", 40, 70, 0)
 
     def test_count_drinks(self):
         self.assertEqual(3, self.pub.count_drinks())

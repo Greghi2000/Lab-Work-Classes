@@ -18,3 +18,12 @@ class Pub:
         self.add_to_till(drink)
         customer.reduce_wallet(drink.price)
         customer.add_drink(drink)
+
+    def check_age(self, customer):
+        if customer.age < 18:
+            exit()
+        # How to make it so that the code stops if condition is not met?
+
+    def serving_acl_lvl(self, customer):
+        if customer.drunkness > 15:
+            exit()
