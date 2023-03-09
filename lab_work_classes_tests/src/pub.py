@@ -21,9 +21,16 @@ class Pub:
 
     def check_age(self, customer):
         if customer.age < 18:
-            exit()
+            return False
+        else:
+            return True
         # How to make it so that the code stops if condition is not met?
 
     def serving_acl_lvl(self, customer):
         if customer.drunkness > 15:
-            exit()
+            return False
+        else:
+            return True
+
+    def drink_names(self):
+        return self.drinks

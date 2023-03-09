@@ -10,7 +10,7 @@ class TestPub(unittest.TestCase):
         self.drink_2 = Drink("wine", 7.00, 3)
         self.drink_3 = Drink("cocktail", 15.00, 6)
         self.pub = Pub("Edinburgh Arms", 100, [self.drink_1, self.drink_2, self.drink_3])
-        self.customer = Customer("David", 40, 70, 0)
+        self.customer = Customer("David", 4, 70, 0)
 
     def test_count_drinks(self):
         self.assertEqual(3, self.pub.count_drinks())
@@ -32,3 +32,14 @@ class TestPub(unittest.TestCase):
 
         # check customer has less money
         self.assertEqual(66.5, self.customer.count_wallet())
+
+    def test_check_age(self):
+        self.assertFalse(self.pub.check_age(self.customer))
+        self.assertTrue(self.pub.check_age(Customer("David2", 40, 70, 0)))
+
+    def test_serving_acl_lvl(self):
+        # self.assertFalse(self.pub.serving_acl_lvl(self.customer))
+        self.assertTrue(self.pub.serving_acl_lvl(Customer("David2", 40, 70, 0)))
+
+    def test_drink_names(self):
+        self.assertEqual([self.drink_1.name, self.drink_2.name, self.drink_3.name], self.pub.drink_names())
